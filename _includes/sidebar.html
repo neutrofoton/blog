@@ -1,5 +1,9 @@
 <div id="sidebar">
+
+
+
   {% include photo.html %}
+
   <header>
     <{% if page.layout == "index" %}h1{% else %}div{% endif %} class="site-title">
       <a href="{{ "/" | relative_url }}">
@@ -9,6 +13,8 @@
         {{ site.title }}
       </a>
     </{% if page.layout == "index" %}h1{% else %}div{% endif %}>
+
+
     <p class="lead">{{ site.description }}</p>
   </header>
   {% include sidebar-nav-links.html %}

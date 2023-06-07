@@ -50,3 +50,28 @@ span.eq-no {
 }
 .eq.eq-expression { float:left }
 span.eq-expression { float:center }
+
+
+div.profile-pic {
+  position: relative;
+}
+
+/* Dotted red border */
+hr.line-dotted {
+  border-top: 1px dotted $red;
+}
+
+.remove-auto-capital{
+  text-transform: none !important;
+}
+
+.related-article-item{
+  font-size: 16px; font-style: italic;
+
+}
+
+.related-posting-item-spacing{
+  
+  margin: 1px 0;
+  height: 20px;
+}
