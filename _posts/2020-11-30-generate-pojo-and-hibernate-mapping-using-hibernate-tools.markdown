@@ -45,7 +45,7 @@ Select the checked box of <code>Create a simple project</code> then press <code>
 Fill the <code>Group Id</code> and <code>Artifact Id</code>. Select <code>jar</code> for the <code>Packaging</code> option, then click <code>Finish</code>
 
 
-<img class="center" src="{{ site.baseurl }}/images/post/2020-11-30-fig05.png" />
+<img class="center" src="{{ site.baseurl }}/assets/images/post/2020-11-30-fig05.png" />
 
 Create a namespace in the maven project where the generated code will be placed.
 
