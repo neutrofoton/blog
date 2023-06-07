@@ -4,6 +4,9 @@ title: Hello Hydeout XXXX
 excerpt_separator:  <!--more-->
 ---
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.js"></script>
+
 Hydeout updates the original [Hyde](https://github.com/poole/hyde)
 theme for [Jekyll](http://jekyllrb.com) 3.x and 4.x and adds new functionality.
 
@@ -16,6 +19,16 @@ variables).
 
 Hydeout makes heavy use of Flexbox in its CSS. If Flexbox is not available,
 the CSS degrades into a single column layout.
+
+
+<div class="eq">
+        <span  class="eq-expression katex horizontal_dotted_line" id="cost_formula_last_layer_one_neuron" ><span class="dot"></span></span>
+        <span class="eq-no">Eq (1)</span>
+</div>
+
+<script>
+        katex.render("C_{0} = (a^{(L)} - y)^2", cost_formula_last_layer_one_neuron);
+</script>
 
 ### Customization
 
