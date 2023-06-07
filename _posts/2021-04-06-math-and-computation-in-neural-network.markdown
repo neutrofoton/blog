@@ -4,11 +4,11 @@ title: "Math and Computation in Neural Network"
 date: 2021-04-06 08:10:48 +0700
 comments: true
 categories: [mathematic, machine learning]
+tags: [mathematic, machine learning]
 ---
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.js"></script>
-
 
 An Artificial Neural Network (ANN) is a series of algorithms that endeavors to recognize underlying relationships in a set of data through a process that mimics the way the human brain operates[1]. Neuron typically has a weight that adjusts as learning proceeds. This article focuses on the basic mathematical and computation process in the ANN.
 
