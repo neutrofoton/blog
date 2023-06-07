@@ -5,6 +5,7 @@ date: 2021-04-06 08:10:48 +0700
 comments: true
 categories: [mathematic, machine learning]
 tags: [mathematic, machine learning]
+excerpt_separator:  <!--more-->
 ---
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"/>
@@ -16,7 +17,7 @@ An Artificial Neural Network (ANN) is a series of algorithms that endeavors to r
 An artificial neuron is a mathematical function that models biological neurons. A Neuron can receive input from other neurons. The neuron inputs are weighted with <span class="katex" id="omega1"></span> and summed (<span class="katex" id="sigma1"></span>) them before being passed through into an activation function. Figure 1 shows the structure of an artificial neuron.
 
 
-<img class="center" src="/images/post/2021-04-06-neuron.png" width="70%" height="70%">
+<img class="center" src="{{ site.baseurl }}/assets/images/post/2021-04-06-neuron.png" width="70%" height="70%"/>
 
 <center><small>Figure 1: Artificial Neuron <br/>
         </small>
@@ -37,6 +38,8 @@ ANN is a supervised learning that its operation involves a dataset. The dataset 
     katex.render("a ", symbol_activation_neuron_a);
     katex.render("L ", symbol_layer_L);
 </script>
+
+<!--more-->
 
 In the training phase, the sample data is fed through the ANN. The outcome of the ANN is inspected and compared to the expected result (the label). The difference between the outcome and expected result is called Cost/Error/Loss. There are several cost functions can be used to evaluate the cost in analyzing model performance. One of the common ones is the quadratic cost function.
 
