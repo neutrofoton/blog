@@ -166,7 +166,7 @@ body {
 
     // Attach to bottom or top of window
     @if $sidebar-sticky {
-      bottom: 50px;
+      /*bottom: 50px;*/
     }
 
     @else {
