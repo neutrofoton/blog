@@ -4,6 +4,8 @@ title: "Domain Driven Design Short Summary"
 date: 2021-03-20 15:49:56 +0700
 comments: true
 categories: [pattern]
+tags: [pattern]
+excerpt_separator:  <!--more-->
 ---
 
 I believe there are tons of articles and books out there that discuss about Domain Driven Design (DDD for short). This post essentially is taken from my note archieved when I explored about DDD from several resources. I rewrite it in here as a refresh for myself mainly. 
@@ -33,7 +35,7 @@ Bounded Context is a central pattern in DDD. It is the focus of DDD's strategic 
 *Bounded Context* notion comes up to make clear boundries between different parts of the system. Let's say our system consist of *Sales* and *Support*, we can seperate Product into *Sales* and *Support* context to make clear boundries between the two.
 
 
-<img class="center" src="{{ site.baseurl }}/images/post/2021-03-20-fig00.png" />
+<img class="center" src="{{ site.baseurl }}/assets/images/post/2021-03-20-fig00.png" />
 
 <center><small>Figure 1: Bounded Contexts <br/>
         Source: https://martinfowler.com/bliki/BoundedContext.html</small>
@@ -46,7 +48,7 @@ Figure 1 shows that *Bounded Context* aims for separating the model and explicit
 ## Sub Domain
 The difference between *Sub Domain* and *Bounded Context* is that the *Sub Domain* is a *Problem Space*. Meanwhile *Bounded Context* is a *Solution Space*. *Sub Domain* and *Bounded Context* have a **1-to-1** relation. It means that a *Sub Domain* should be covered with exactly a *Bounded Context*.
 
-<img class="center" src="{{ site.baseurl }}/images/post/2021-03-20-fig03.png" />
+<img class="center" src="{{ site.baseurl }}/assets/images/post/2021-03-20-fig03.png" />
 
 <center><small>Figure 2: Sub Domain - Bounded Contexts</small>
 </center>
@@ -56,12 +58,13 @@ Since *Sub Domain* is a *Problem Space*, it should be defined by *Business Exper
 ## Core Domain
 The notion that focuses on *Domain Model* which is the most important part of the system.
 
+<!--more-->
 
 # Onion Architecture
 The implementation of DDD in onion architecture[3][5][6] showed in the Figure 3.
 
 
-<img class="center" src="{{ site.baseurl }}/images/post/2021-03-20-fig01.png" />
+<img class="center" src="{{ site.baseurl }}/assets/images/post/2021-03-20-fig01.png" />
 
 <center>
     <small>Figure 3: DDD in onion architecture </small>
@@ -99,7 +102,7 @@ Two objects A and B are identified have *Structural Equality* if *all the member
 The 3 types of Type Equality is summarized in the following Figure. 
 
 
-<img class="center" src="{{ site.baseurl }}/images/post/2021-03-20-fig02.png" />
+<img class="center" src="{{ site.baseurl }}/assets/images/post/2021-03-20-fig02.png" />
 
 <center><small>Figure 4: Type Equality classification</small>
 </center>
@@ -125,7 +128,6 @@ For example <code>Address</code> object can not stay by its own. It should be be
 It is not always clear having specific characteristic if a term or notion in a business process is an *Entity* or *Value Object*. It depends on the business process itself. A good approach to identify whether a notion of object is an *Entity* or *Value Object* is by comparing to *integer*[3].
 
 ```csharp
-
 //Integer
 public void MethodA(){
     int value1 = 5;
@@ -146,7 +148,7 @@ public void MethodB(){
 Ideally most business logic elements are identified as *Value Objects*. The *Entity* act as a wrapper of *Value Object(s)*. However, don't hesitate to refactor *Value Object* to *Entity* or vise versa if we identify it should be.
 
 
-``` csharp Entity Base Class
+``` csharp
     public abstract class Entity
     {
         public virtual long Id { get; protected set; }
@@ -198,7 +200,7 @@ Ideally most business logic elements are identified as *Value Objects*. The *Ent
     }
 ```
 
-``` csharp Value Object base class
+``` csharp
     public abstract class ValueObject<T>
         where T : ValueObject<T>
     {
@@ -212,18 +214,10 @@ Ideally most business logic elements are identified as *Value Objects*. The *Ent
             return EqualsCore(valueObject);
         }
 
-
-        protected abstract bool EqualsCore(T other);
-
-
         public override int GetHashCode()
         {
             return GetHashCodeCore();
         }
-
-
-        protected abstract int GetHashCodeCore();
-
 
         public static bool operator ==(ValueObject<T> a, ValueObject<T> b)
         {
@@ -236,11 +230,13 @@ Ideally most business logic elements are identified as *Value Objects*. The *Ent
             return a.Equals(b);
         }
 
-
         public static bool operator !=(ValueObject<T> a, ValueObject<T> b)
         {
             return !(a == b);
         }
+
+        protected abstract bool EqualsCore(T other);
+        protected abstract int GetHashCodeCore();
     }
 ```
 
@@ -249,14 +245,14 @@ Ideally most business logic elements are identified as *Value Objects*. The *Ent
 
 An *Agregate* contains a set of operations which those domain objects can be operated on. An *Agregate* also act as a single operation unit. Application layer should reload it from database, then perform action and store it back as a single object. Hence, the *Agregate* should not be too large. Commonly it contains maximum 3 *Entities*. On the contrary to *Entity*, we can have as many *Value Objects* in an *Agregate* as we want.
 
-``` csharp Agregate Root
+``` csharp
     public abstract class AggregateRoot : Entity
     {
         
     }
 ```
 
-``` csharp Repository for Database Operation
+``` csharp
     public abstract class Repository<T> where T : AggregateRoot
     {
         public T GetById(long id)

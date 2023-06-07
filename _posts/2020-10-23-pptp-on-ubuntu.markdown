@@ -4,6 +4,8 @@ title: "PPTP on Ubuntu"
 date: 2020-10-23 12:31:07 +0700
 comments: true
 categories: [linux]
+tags: [linux]
+excerpt_separator:  <!--more-->
 ---
 
 
@@ -41,6 +43,7 @@ defaultroute
 replacedefaultroute
 usepeerdns
 ```
+<!--more-->
 
 Then save and exit the file. Before executing VPN connection, change the file security attribute.
 

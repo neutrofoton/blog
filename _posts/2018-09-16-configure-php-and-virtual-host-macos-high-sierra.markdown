@@ -4,6 +4,8 @@ title: "Configure PHP and Virtual Host macOS High Sierra"
 date: 2018-09-16 08:48:43 +0700
 comments: true
 categories: [macos, apache, php]
+tags: [macos, apache, php]
+excerpt_separator:  <!--more-->
 ---
 
 Apache is pre installed on macOS High Sierra. We just need to run its service with the following command to activate it.
@@ -99,7 +101,7 @@ The steps of configuring apache virtual host are :
 
 When we open in browser <code>http://neutro.io</code>, we should get a page that display PHP info.
 
-
+<!--more-->
 ## Losing Default Localhost
 After configuring the virtual host, we may lose the previous default localhost that points to <code>/Library/WebServer/Documents/</code> directory. We may get a 403 Forbidden Error when visiting <code>http://localhost</code>. To get around this, we need to add in a vhost for localhost and declare this vhost before any of the others. The following code is our new Virtual host after adding config for localhost.
 

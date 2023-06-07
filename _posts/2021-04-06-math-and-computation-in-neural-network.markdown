@@ -25,7 +25,7 @@ An artificial neuron is a mathematical function that models biological neurons. 
 <br/>
 ANN is a supervised learning that its operation involves a dataset. The dataset is labeled and split into two part at least, namely training and testing. We have expected output (from the label) for each input. During the training process, the parameter weights and biases are updated in order to achieve a result that is close to the labeled data. To identify model performance, we evaluate the model to the testing dataset to verify how good the trained model is. To get more detail how ANN learn, let begin with the last two neurons connection.
 
-<img class="center" src="/images/post/2021-04-06-simple-neuron-connection.png" width="40%" height="40%">
+<img class="center" src="{{ site.baseurl }}/assets/images/post/2021-04-06-simple-neuron-connection.png" width="40%" height="40%">
 
 <center><small>Figure 2: Simple Two Neuron Connection<br/>
         </small>
@@ -39,7 +39,7 @@ ANN is a supervised learning that its operation involves a dataset. The dataset 
     katex.render("L ", symbol_layer_L);
 </script>
 
-<!--more-->
+
 
 In the training phase, the sample data is fed through the ANN. The outcome of the ANN is inspected and compared to the expected result (the label). The difference between the outcome and expected result is called Cost/Error/Loss. There are several cost functions can be used to evaluate the cost in analyzing model performance. One of the common ones is the quadratic cost function.
 
@@ -65,9 +65,11 @@ Equation (1) and (2) show that the closer the outcome of ANN to the expected res
         katex.render("C(\\omega_1, b_1, \\omega_2, b_2, \\omega_3, b_3 )", cost_as_func_of_weight_bias);
 </script>
 
+<!--more-->
+
 # Gradient Decent
 
-<img class="center" src="/images/post/2021-04-06-derivative-direction.png" width="40%" height="40%">
+<img class="center" src="{{ site.baseurl }}/assets/images/post/2021-04-06-derivative-direction.png" width="40%" height="40%">
 
 <center><small>Figure 3: Gradient vector in the direction of vector U<br/>
         </small>
@@ -124,7 +126,7 @@ The same method also implemented to get bias update.
 </div>
 <span  class="eq-expression katex" id="eta_1" ></span> is a learning rate. It is an additional value added how much the gradient vector we use to change the current value of weights and biases to the new ones. If <span  class="eq-expression katex" id="eta_2" ></span> is too small, adjustment of weight will slow. The convergency to local minimum will longer. However, if it is too high, the search of local minimum might be oscillated or reach overshoot. Ilustration of gradient descent in 3 dimention plot ilustrated in the Figure 4. Of course it is hard to plot the gradient descent that cover all weights of the ANN.
 
-<img class="center" src="/images/post/2021-04-06-gradient-descent-ilustration.png" width="70%" height="70%">
+<img class="center" src="{{ site.baseurl }}/assets/images/post/2021-04-06-gradient-descent-ilustration.png" width="70%" height="70%">
 
 <center><small>Figure 4: Gradient descent ilustration<br/>
         </small>
@@ -203,7 +205,7 @@ Thus,
 
 Correlation between variables described graphically as:
 
-<img class="center" src="/images/post/2021-04-06-one-neuron-chain-rule.png" width="40%" height="40%">
+<img class="center" src="{{ site.baseurl }}/assets/images/post/2021-04-06-one-neuron-chain-rule.png" width="40%" height="40%">
 
 <center><small>Figure 5: A cost chaining rule in a layer<br/>
         </small>
@@ -211,7 +213,7 @@ Correlation between variables described graphically as:
 <br/>
 The graphical correlation can be extended to the previous neuron.
 
-<img class="center" src="/images/post/2021-04-06-two-neuron-chain-rule.png" width="40%" height="40%">
+<img class="center" src="{{ site.baseurl }}/assets/images/post/2021-04-06-two-neuron-chain-rule.png" width="40%" height="40%">
 
 <center><small>Figure 6: A cost chaining rule in two layers<br/>
         </small>
@@ -323,7 +325,7 @@ Thus,
 
 To get a more comprehensive neuron connection, Figure 7 denotes ANN with a more detailed subscript and superscript that show index neuron order and layer.
 
-<img class="center" src="/images/post/2021-04-06-neuron-relation-with-index.png" width="60%" height="60%">
+<img class="center" src="{{ site.baseurl }}/assets/images/post/2021-04-06-neuron-relation-with-index.png" width="60%" height="60%">
 
 <center><small>Figure 7: ANN with indexed neurons<br/>
         </small>
@@ -415,7 +417,7 @@ If the cost function <span  class="eq-expression katex" id="C_def" ></span> defi
 
 To complement the explanation about neural networks, in this post we will use an example provided by [Tobias Hill](https://machinelearning.tobiashill.se/part-2-gradient-descent-and-backpropagation/) with a slight modification in notation to meet our notation convention in the previous chapter. The neural network structure showed in Figure 8.
 
-<img class="center" src="/images/post/2021-04-06-nn-numerical.png" width="80%" height="80%">
+<img class="center" src="{{ site.baseurl }}/assets/images/post/2021-04-06-nn-numerical.png" width="80%" height="80%">
 
 <center><small>Figure 8: Neural network with numeric attributes<br/>
         </small>
