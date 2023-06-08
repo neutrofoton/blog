@@ -4,9 +4,11 @@ title: "Create and consume C++ Class DLL on Windows"
 date: 2017-09-14 13:04:05 +0700
 comments: true
 categories: [cpp, visual studio, windows]
+tags: [cpp, visual studio, windows]
+excerpt_separator:  <!--more-->
 ---
 
-<img class="left" src="{{ site.baseurl }}/images/logo/cpp.png" />
+<img class="left" src="{{ site.baseurl }}/assets/images/logo/cpp.png" />
 
 while visiting clients of the company I work on, sometime I still found some applications especially desktop application build on unmanaged code (such as Delphi, Visual Basic 6, C++, etc). Even though at the time of this blog post, many application build on .NET (managed code) on Windows platform. There are various reasons why they do not migrate to managed code which has some advantages over unmanaged code (such as the application still run well with the version of OS they use, rewrite app will need extra cost, etc). This means unmanaged code application is not dead at all for LOB app, even though the percentage is much lower than the managed one.
 
@@ -19,8 +21,9 @@ When we create a DLL, we also create a .lib file that contains information of ex
 An executable file links to (or loads) a DLL in one of two ways, *implicit* or *explicit linking*. In this post will create simple sample both of them how C++ class exported in the two ways. The samples in this post created using IDE Microsoft Visual Studio 2013 Ultimate. To simplify the code, I just created a single solution contains a Win32 DLL project and a console application client. The DLL project contains classes for both sample *implicit* and *explicit linking*. Either the console application contains sample code for *implicit* and *explicit linking* caller. Here is the classes I use in this sample.
 
 
-<img class="center" src="{{ site.baseurl }}/images/post/2017-09-04-classdiagram.png" />
+<img class="center" src="{{ site.baseurl }}/assets/images/post/2017-09-04-classdiagram.png" />
 
+<!--more-->
 
 ## Implicit Linking
 *Implicit linking*, where the operating system loads the DLL when the executable using it is loaded. The executable client calls the exported functions of the DLL just as if the functions were statically linked and contained within the executable. *Implicit linking* is sometimes referred to as static load or load-time dynamic linking<sup>[4]</sup>. Now let's create a sample of DLL with *implicit linking*.
@@ -32,11 +35,11 @@ Now we have an empty solution in Visual Studio. Right click the ```VCppDLL``` so
 On the Win32 Application Wizard dialog in the ```Application Settings``` part, select ```DLL``` and check ```Empty project```, then click Finish
 
 
-<img class="center" src="{{ site.baseurl }}/images/post/2017-09-04-Win32AppWizard.png" />
+<img class="center" src="{{ site.baseurl }}/assets/images/post/2017-09-04-Win32AppWizard.png" />
 
 Now we have an empty C++ DLL project in the Visual Studio solution. As the class diagram picture above, let create a simple ```BaseMath``` class. Right click the MathWin32DLL project > ```Add``` > ```Class```. On ```Visual C++``` template on the left pane dialog, select ```C++ Class``` > click ```Add```. On the ```Generic C++ Class Wizard```, fill the ```Class name``` as **BaseMath** then click ```Finish```. Edit the ```BaseMath.h``` with the following code.
 
-```cpp BaseMath.h
+```cpp
 // If you are building the DLL project on the command line,
 // use the /D compiler option to define the MATHDLLWIN32_EXPORTS symbol.
 
@@ -74,7 +77,7 @@ We can delete ```BaseMath.cpp``` file since we will make the ```BaseMath``` as a
 In Visual Studio, by default the New Project template for a DLL adds PROJECTNAME_EXPORTS to the defined preprocessor symbols for the DLL project. We can see the preprocessor symbols definition in ```Property Pages``` of **MathWin32DLL** project in the ```Configuration Properties``` > ```C/C++``` > ```Preposesor``` > ```Preposesor Definitions```.
 
 
-<img class="center" src="{{ site.baseurl }}/images/post/2017-09-04-preposesordefinitions.png" />
+<img class="center" src="{{ site.baseurl }}/assets/images/post/2017-09-04-preposesordefinitions.png" />
 
 In the code of ```BaseMath.h```, when ```MATHWIN32DLL_EXPORTS``` symbol is defined, the ```Math_API``` symbol is set to ```__declspec(dllexport) ``` modifier otherwise it is set to ```__declspec(dllimport)```. The ```__declspec(dllexport) ``` modifier can be applied to classes, functions, or variables that tells the compiler and linker to export them from the DLL so that it can be used by other applications.
 
@@ -84,7 +87,7 @@ Meanwhile when we include ```BaseMath.h``` in client project, ```Math_API``` is 
 For the next, let's create another class called ```AddOperationMath```. Edit the ```AddOperationMath.h``` and ```AddOperationMath.cpp``` respectively as follow.
 
 
-```cpp AddOperationMath.h
+```cpp
 #pragma once
 #include "BaseMath.h"
 
@@ -109,7 +112,7 @@ namespace core
 
 ```
 
-```cpp AddOperationMath.cpp
+```cpp
 
 #include "AddOperationMath.h"
 
@@ -156,15 +159,15 @@ In the ***MathWin32ClientConsole*** project, right click > ```Add``` > ``` New I
 
 To make the ***MathWin32ClientConsole*** project has reference to ***MathWin32DLL*** project, right click ***MathWin32ClientConsole*** project > ```Properties```. Scroll up the ```Property Pages``` dialog, expand ```Common Properties``` on the left pane > select ```References```. Click ```Add New Reference``` button, select ```Projects``` and check the ```MathWin32DLL``` > ```OK```. Now you should see ```MathWin32DLL``` added to the ```References``` pane as the following picture.
 
- <img class="center" src="{{ site.baseurl }}/images/post/2017-09-04-MathWin32ClientConsoleReference.png" />
+ <img class="center" src="{{ site.baseurl }}/assets/images/post/2017-09-04-MathWin32ClientConsoleReference.png" />
 
  To make the ```AddOperationMath``` class is recognized in the ***MathWin32ClientConsole*** project, we have to include ```AddOperationMath.h```. We can copy the ```AddOperationMath.h``` and ```BaseMath.h``` to the ***MathWin32ClientConsole*** project. But it is not a good way in our scenario, because if we make changes to one of them, we have to recopy it to the ***MathWin32ClientConsole*** project directory. To avoid this manual copy, we can include the ***MathWin32DLL*** project directory to the ***MathWin32ClientConsole*** so that we can include any header files of ***MathWin32DLL*** to ***MathWin32ClientConsole*** if needed. To do that open the Property pages of ***MathWin32ClientConsole***, select ```Configuration Properties``` > ```C/C++``` > ```General```. Select the drop-down control next to the ```Additional Include Directories``` edit box, and then choose ```<Edit...>```. Select the top pane of the ```Additional Include Directories``` dialog box to enable an edit control. In the edit control, fill ```$(SolutionDir)\MathWin32DLL``` which tells to Visual Studio to scan or search header files that we include in directory ```MathWin32DLL``` inside solution directory.
 
-  <img class="center" src="{{ site.baseurl }}/images/post/2017-09-04-IncludeMathWin32DLLDirectory.png" />
+  <img class="center" src="{{ site.baseurl }}/assets/images/post/2017-09-04-IncludeMathWin32DLLDirectory.png" />
 
 Now we can include header file defined in ```MathWin32DLL``` from ```MathWin32ClientConsole```. Let create code that call class defined in the DLL.
 
-``` cpp Main.cpp
+``` cpp
 
 #include <iostream>
 #include <string>
@@ -207,7 +210,7 @@ void CallDLLByImplicitLinking(double a, double b, string s)
 
 ```
 
-``` text Output
+``` text
 2 + 4 = 6
 neutro is calling add operation of class AddOperationMath
 
@@ -240,7 +243,7 @@ To create a sample for *explicit linking*, we will use an abstract interface (a 
 
 On the ***MathWin32DLL*** create a new class called ```LogarithmicMath```. Edit the header and implementation files as follow
 
-```cpp LogarithmicMath.h
+```cpp
 
 #pragma once
 
@@ -262,7 +265,7 @@ namespace core
 
 ```
 
-```cpp LogarithmicMath.cpp
+```cpp
 #include "LogarithmicMath.h"
 #include <math.h>
 
@@ -292,7 +295,8 @@ namespace core
 
 Next, create a ```Factory``` class that encapsulates ```LogarithmicMath``` instantiation and will be called from client app.
 
-```cpp Factory.h
+```cpp 
+//Factory.h
 #include "BaseMath.h"
 
 using namespace std;
@@ -301,7 +305,8 @@ extern "C" Math_API core::BaseMath* __cdecl CreateLogarithmicMath();
 
 ```
 
-```cpp Factory.cpp
+```cpp 
+//Factory.cpp
 #include "Factory.h"
 #include "LogarithmicMath.h"
 
@@ -321,7 +326,7 @@ In the ```Factory.h``` defined ```extern "C"``` which tells the C++ compiler tha
 
 Now let create a sample code in the ***MathWin32ClientConsole*** by editing the ```Main.cpp``` as following.
 
-```cpp Main.cpp
+```cpp
 
 #include <iostream>
 #include <string>
@@ -401,7 +406,7 @@ void CallDLLByExplicitLinking(double a, double b, string s)
 
 Now build and run the ***MathWin32ClientConsole***, we should get the following output.
 
-```text output
+```text 
 2 + 4 = 6
 neutro is calling add operation of class AddOperationMath
 

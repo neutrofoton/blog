@@ -4,9 +4,11 @@ title: "Arduino and NEO-6M GPS Module"
 date: 2017-05-04 07:32:17 +0700
 comments: true
 categories: [arduino,c]
+tags: [arduino,c]
+excerpt_separator:  <!--more-->
 ---
 
-<img class="left" src="{{ site.baseurl }}/images/logo/arduino.png" />
+<img class="left" src="{{ site.baseurl }}/assets/images/logo/arduino.png" />
 
 Couple days ayo, I met a friend of mine when I was at university. He plays extensively with [Arduino](http://www.arduino.org), [Raspberry Pi](https://www.raspberrypi.org), [Orange Pi](http://www.orangepi.org) and other IoT stuff. He showed me how interesting IoT is, include wiring modules, and surely its programming. I remember that a few months ago, I got Arduino kit with GPS module from another friend of mine. The items were idle since I have other things to do in my work. Yesterday, I just have a free time to play with the Arduino kit. And I never play or explore Arduino before.
 
@@ -29,11 +31,13 @@ The table below shows wiring between Arduino and NEO-6M-0-001 GPS module
 <p/>
 
 
-<img class="center" src="{{ site.baseurl }}/images/post/2017-05-04-neo-6m-0-0-001.png" />
-<img class="center" src="{{ site.baseurl }}/images/post/2017-05-04-arduino-uno.png" />
-<img class="center" src="{{ site.baseurl }}/images/post/2017-05-04-arduino-uno-gps.png" />
+<img class="center" src="{{ site.baseurl }}/assets/images/post/2017-05-04-neo-6m-0-0-001.png" />
+<img class="center" src="{{ site.baseurl }}/assets/images/post/2017-05-04-arduino-uno.png" />
+<img class="center" src="{{ site.baseurl }}/assets/images/post/2017-05-04-arduino-uno-gps.png" />
 
 To simplify our testing, I grab sample source code provided by [TinyGPS](https://github.com/mikalhart/TinyGPS). On This sample, I Set the data rate in bits per second (baud) for serial data transmission to 9600.
+
+<!--more-->
 
 ``` cpp
 
@@ -180,7 +184,7 @@ static void print_str(const char *str, int len)
 
 The output of this testing on Serial monitor showed as follow.
 
-<img class="center" src="{{ site.baseurl }}/images/post/2017-05-04-output.png" />
+<img class="center" src="{{ site.baseurl }}/assets/images/post/2017-05-04-output.png" />
 
 If you do not get similar output as above (get <code>*</code> on table output) it means your arduino fails get data from GPS module. Please ensure your GPS led is blinking which indicate it receives data from the GPS satellites.
 

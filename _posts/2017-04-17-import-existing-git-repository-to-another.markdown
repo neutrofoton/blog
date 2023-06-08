@@ -4,9 +4,11 @@ title: "Import Existing Git Repository to Another"
 date: 2017-04-17 16:44:53 +0700
 comments: true
 categories: [git]
+tags: [git]
+excerpt_separator:  <!--more-->
 ---
 
-<img class="left" src="{{ site.baseurl }}/images/logo/git.png" />
+<img class="left" src="{{ site.baseurl }}/assets/images/logo/git.png" />
 
 While working with git, we may need to import source code from an existing git repository to our working copy. Merging it and pushing to origin master.
 The scenario that I had was :
@@ -15,12 +17,12 @@ The scenario that I had was :
 <ul>
 <li> I have a project template that I store on a git repository. Let say the url is <code>http://server/git/template.git</code>
   
-   <img class="center" src="{{ site.baseurl }}/images/post/2017-04-17-template.png" />
+   <img class="center" src="{{ site.baseurl }}/assets/images/post/2017-04-17-template.png" />
 </li>
 <li>
 I have another git repository with url <code>http://server/git/project1.git</code>
 
-   <img class="center" src="{{ site.baseurl }}/images/post/2017-04-17-project1.png" />
+   <img class="center" src="{{ site.baseurl }}/assets/images/post/2017-04-17-project1.png" />
 </li>
 </ul>
 What I need from the two repositories are importing all contents (libraries, sources, etc) from <code>template</code> repository into my <code>project1</code> working copy. Since I don't want to coding from zero. To get into what I need, here are the steps.

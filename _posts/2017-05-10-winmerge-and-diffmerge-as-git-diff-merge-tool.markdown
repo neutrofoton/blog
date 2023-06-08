@@ -4,9 +4,11 @@ title: "WinMerge and DiffMerge as git diff merge tool"
 date: 2017-05-10 10:01:23 +0700
 comments: true
 categories: [git, macos, windows]
+tags: [git, macos, windows]
+excerpt_separator:  <!--more-->
 ---
 
-<img class="left" src="{{ site.baseurl }}/images/logo/git.png" />
+<img class="left" src="{{ site.baseurl }}/assets/images/logo/git.png" />
 On software development while working with source control, it's inevitable sometime we get our code conflicts with other, since we work in a team. There are many diff and merge tools out there and some of them can be integrated with with Git. In this post I just want to note what I did in my development machine (Windows 7 and macOS Sierra)
 
 
@@ -29,7 +31,7 @@ $ git config --global mergetool.diffmerge.trustExitCode true
 
 The command will add the following config code in global <code>.gitconfig</code>
 
-```
+``` bash
 [mergetool]
   prompt = false
   keepBackup = false
@@ -49,6 +51,8 @@ The command will add the following config code in global <code>.gitconfig</code>
 	trustExitCode = true
 ```
 We can also directly edit the <code>.gitconfig</code> and manually add the config code.
+
+<!--more-->
 
 ## WinMerge 2.x on Windows
 
@@ -100,7 +104,7 @@ $ git difftool Build-54..Build-55 file.m
 ```
 
 To resolve merge conflicts
-```
+``` bash
 $ git mergetool
 ```
 

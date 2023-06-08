@@ -4,6 +4,8 @@ title: "PPTP on macOS"
 date: 2017-11-22 06:59:38 +0700
 comments: true
 categories: [macos]
+tags: [macos]
+excerpt_separator:  <!--more-->
 ---
 
 One day I need to connect my macOS to a network of client of the company I work for via [Point-to-Point Tunneling Protocol (PPTP)](https://en.wikipedia.org/wiki/Point-to-Point_Tunneling_Protocol) VPN. Unfortunately [Apple removed PPTP support on macOS Sierra](https://support.apple.com/en-us/HT206844), so I had to find an alternative for that. Some of them I found are third parties application that need a one time buying or annual subscription. In fact, Apple just remove the user interface option for PPTP VPN, meanwhile the libraries of it are still available on Sierre.
@@ -20,7 +22,7 @@ $ sudo /etc/ppp/peers/pptpvpn-client1
 
 Fill the <code>pptpvpn-client1</code> that contains configuration that pppd daemon will refer to connect.
 
-``` bash /etc/ppp/peers/pptpvpn-client1
+``` bash 
 
 plugin PPTP.ppp
 noauth
