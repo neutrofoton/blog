@@ -40,15 +40,15 @@ In web.config, don’t forget to add session state configuration by pointing the
 ```
 To test our session storage, just create simple aspx page.
 
-``` aspx
+{% highlight aspx-cs %}
+
 <asp:button id="btnAddSession" runat="server" text="Add Session" onclick="btnAddSession_Click"/>
 
 <asp:button id="btnRemoveSession" runat="server" text="Remove Session" onclick="btnRemoveSession_Click"/>
 
 <br>
 <asp:label id="ctlLblSessionDisplay" runat="server" text=""></asp:label>
-
-```
+{% endhighlight %}
 
 ``` c#
 protected void Page_Load(object sender, EventArgs e)

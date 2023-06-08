@@ -49,7 +49,7 @@ To run ASP.Net on Apache web server, we need <a href="http://www.mono-project.co
 
 <li>Install mod mono module. Open terminal
 
-``` bash 
+{% highlight bash %}
 # mod mono installation
 mkdir ~/modmono
 cp ~/Downloads/mod_mono-2.10.tar.bz2 ~/modmono
@@ -60,34 +60,37 @@ cd mod_mono-2.10
 make
 sudo make install
 sudo cp /etc/apache2/mod_mono.conf /etc/apache2/other
-```
+{% endhighlight %}
+
 </li>
 
 <li>Add <code>mod_mono.conf</code> reference in <code>httpd.conf</code>
-``` bash
+{% highlight bash %}
 sudo vi /etc/apache2/httpd.conf
-```
+{% endhighlight %}
+
 Add the following code at the end of <code>httpd.conf</code>
-``` bash httpd.conf
+{% highlight bash %}
 Include /etc/apache2/mod_mono.conf
-```
+{% endhighlight %}
 </li>
 
 <li>Create a web directory with the path<code> ~/Projects/Mono/TestMonoApache/TestMonoApache/ </code>
 
 In that directory create an <code>index.aspx</code> file
-``` aspx-cs 
+
+{% highlight aspx-cs %}
 <center>mod_mono is working:<%=System.DateTime.Now.ToString()%></center>
-```
+{% endhighlight %}
 </li>
 <li>Add an Apache configuration file for mono.
 
-``` bash
+{% highlight bash %}
 sudo vi /etc/apache2/mod_mono.conf
-```
+{% endhighlight %}
 Add the following line at the end of <code>mod_mono.conf</code>
 
-``` xml
+{% highlight xml %}
 Alias /testmono "/Users/username/Projects/Mono/TestMonoApache/TestMonoApache/"
 <Directory "/Users/username/Projects/Mono/TestMonoApache/TestMonoApache/">
     Options Indexes FollowSymLinks MultiViews
@@ -100,14 +103,15 @@ AddMonoApplications default "/testmonoapache:/Users/username/Projects/Mono/TestM
 <Location /testmonoapache>
  SetHandler mono
 </Location>
-```
+{% endhighlight %}
+
 </li>
 
 <li>Restart apache server with command :
 
-``` bash
+{% highlight bash %}
 sudo /usr/sbin/apachectl restart
-```
+{% endhighlight %}
 </li>
 
 <li> Open browser and hit <code>http://localhost/testmonoapache/index.aspx</code>

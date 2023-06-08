@@ -27,50 +27,52 @@ Xamarin Studio includes with ASP.NET MVC 2 and 3 project template. While trying 
   </li>
 
   <li>
-    Run the project via Xamarin studio menu (Run > Run With > Mono Soft Debugger for ASP.NET. While running the project, we   may got an error message :
+    Run the project via Xamarin studio menu (Run > Run With > Mono Soft Debugger for ASP.NET. While running the project, we   may got an error message : <br/>
 
-    ```bash
-    System.UnauthorizedAccessException
-    Access to the path "/Library/Frameworks/Mono.framework/Versions/3.2.5/etc/mono/registry" is denied.
+    {% highlight html %}
 
-    Description: HTTP 500.Error processing request.
-    Details: Non-web exception. Exception origin (name of application or object): mscorlib.
-    Exception stack trace:
+      System.UnauthorizedAccessException
+      Access to the path "/Library/Frameworks/Mono.framework/Versions/3.2.5/etc/mono/registry" is denied.
 
-    ......
+      Description: HTTP 500.Error processing request.
+      Details: Non-web exception. Exception origin (name of application or object): mscorlib.
+      Exception stack trace:
 
-    ```
+      ......
+
+    {% endhighlight %}
+    <br/>
 
     To solve the error, run the following command in terminal :
-
-    ```bash
-    sudo mkdir /Library/Frameworks/Mono.framework/Versions/3.2.5/etc/mono/registry
-    sudo chmod g+rwx /Library/Frameworks/Mono.framework/Versions/3.2.5/etc/mono/registry
-    ```
+   
+    {% highlight html %}
+      sudo mkdir /Library/Frameworks/Mono.framework/Versions/3.2.5/etc/mono/registry
+      sudo chmod g+rwx /Library/Frameworks/Mono.framework/Versions/3.2.5/etc/mono/registry
+    {% endhighlight %}
+      
+    </code>
   </li>
 
   <li>
     Re-run again the ASP.NET MVC project. We may get another error message.
+    {% highlight csharp %}
+      System.IO.FileNotFoundException
+      Could not load file or assembly 'System.Web.WebPages, Version=1.0.0.0, Culture=neutral,   PublicKeyToken=31bf3856ad364e35'  or one of its dependencies. The system cannot find the file specified.
 
-    ```csharp
-    System.IO.FileNotFoundException
-    Could not load file or assembly 'System.Web.WebPages, Version=1.0.0.0, Culture=neutral,   PublicKeyToken=31bf3856ad364e35'  or one of its dependencies. The system cannot find the file specified.
+      Description: HTTP 500.Error processing request.
+      Details: Non-web exception. Exception origin (name of application or object): mscorlib.
+      Exception stack trace:
 
-    Description: HTTP 500.Error processing request.
-    Details: Non-web exception. Exception origin (name of application or object): mscorlib.
-    Exception stack trace:
-
-    ...
-    ```
-
+       ...
+    {% endhighlight %}
     To solve the error message, just use NuGet package manager, search for “ASP.NET MVC 4″ and add reference to it and its dependencies.
 
   </li>
 
   <li>
     Re-run the ASP.NET MVC again. Now we may get another error message as following :
-
-    ```csharp
+    
+    {% highlight csharp %}
     System.InvalidOperationException
     Conflicting versions of ASP.NET Web Pages detected: specified version is "1.0.0.0", but the version in bin is "2.0.0.0".    To continue, remove files from the application's bin directory or remove the version specification in web.config.
 
@@ -80,19 +82,21 @@ Xamarin Studio includes with ASP.NET MVC 2 and 3 project template. While trying 
 
     ...
 
-    ```
+    {% endhighlight %}
 
-    As the error message, we need to make our ASP.NET Web Pages version to 2.0.0.0 in web.config. So just open web.config and change webpages:Version to 2.0.0.0. as follow :
+    As the error message, we need to make our ASP.NET Web Pages version to <code>2.0.0.0</code> in web.config. So just open <code>web.config</code> and change <code>webpages:Version to 2.0.0.0.</code> as follow :
 
-    ```xml
+    {% highlight xml %}
     <add key="webpages:Version" value="2.0.0.0">
     </add>
-    ```
+    {% endhighlight %}
   </li>
 
   <li>
     Change assembly version declared in root <code>web.config</code> and <code>/View/web.config</code> of the following
 
+    <br/>
+    <br/>
 
     <table style="width:80%">
       <tr>

@@ -8,7 +8,7 @@ tags: [csharp]
 excerpt_separator:  <!--more-->
 ---
 
-<code>Json or JavaScript Object Notation, is a text-based open standard designed for human-readable data interchange. It is derived from the JavaScript scripting language for representing simple data structures and associative arrays, called objects. Despite its relationship to JavaScript, it is language-independent, with parsers available for many languages [wikipedia]</code>
+*Json or JavaScript Object Notation, is a text-based open standard designed for human-readable data interchange. It is derived from the JavaScript scripting language for representing simple data structures and associative arrays, called objects. Despite its relationship to JavaScript, it is language-independent, with parsers available for many languages [wikipedia]*
 
 In this post will talk about Json serialize/deserialize with Data Contract Serializer and <a href="http://json.codeplex.com/">Json.Net</a> library.
 
@@ -19,8 +19,8 @@ In this post will talk about Json serialize/deserialize with Data Contract Seria
 
 <code>DataContractSerializer</code> can also serialize object into Json instead of Xml.The following code is a sample class which an instance of it will be serialized into Json via <code>DataContractSerializer</code>.
 
-``` c# sample contract model
-
+``` c# 
+//sample contract model
 [DataContract]
 public class Product
 {
@@ -55,8 +55,8 @@ public class Product
 ```
 In this case I create a class that wraps serialize and deserialize process using Data Contract Serializer
 
-``` c# generic json serializer
-
+``` c# 
+//generic json serializer
 public class JsonDataContractSerializer
 {
     public static string Serialize<T>(T obj) where T : class, new()
@@ -86,7 +86,8 @@ public class JsonDataContractSerializer
 ```
 
 
-``` c# sample using it the JsonDataContractSerializer
+``` c# 
+//sample using it the JsonDataContractSerializer
 static void Main(string[] args)
 {
     var product = new Product()
@@ -105,7 +106,7 @@ static void Main(string[] args)
 }
 ```
 
-``` text output result
+``` text
 {
   "Name": "Geeks T-shirt",
   "Created": "\/Date(1344061690773+0800)\/",
@@ -130,7 +131,8 @@ Json.NET is a JSON framework for .NET which is written in C# language. The featu
 
 At the time writing this post, I have not tested/used all those features. In this part of article I will try to serialize our previous Product class. Meanwhile we don’t need any <code>DataContract</code> or <code>DataMember</code> attribute in class and properties.
 
-``` c# poco
+``` c# 
+//poco
 public class Product
 {
     public string Name
@@ -159,7 +161,8 @@ public class Product
 }
 ```
 
-``` c# sample use json.net
+``` c# 
+//sample use json.net
 class Program
 {
     static void Main(string[] args)
@@ -180,7 +183,7 @@ class Program
 }
 ```
 
-``` text output
+``` text
 {
   "Name": "Geeks T-shirt",
   "Created": "2012-08-04T16:51:26.1700499+08:00",
@@ -195,7 +198,8 @@ class Program
 
 To get the microsoft date time format in Json result we can set the DateFormatHandling on <code>JsonSerializerSettings</code> to <code>MicrosoftDateFormat</code> :
 
-``` c# sample
+``` c# 
+//sample
 class Program
 {
     static void Main(string[] args)

@@ -13,7 +13,8 @@ After installing Mountain Lion on my Macbook, I decided to prepare and set up so
 
 By searching some references on internet, here are the things that I did. Apache actually is pre-installed on Mountain Lion and we just need to enable it via the command line.
 
-``` bash start apache server
+``` bash 
+# start apache server
 sudo apachectl start
 
 ```
@@ -22,11 +23,13 @@ We will be asked to enter login password for starting it. Enter a password then 
 
 <img class="center" src="{{ site.baseurl }}/assets/images/post/2012-08-07-pic02.png" />
 
-``` bash stop apache server
+``` bash 
+# stop apache server
 sudo apachectl stop
 ```
 
-``` bash get apache version
+``` bash 
+# get apache version
 httpd -v
 ```
 Historically, OSX has had 2 web roots. One at a system level and the other one at a user level. The user level one allows multiple acounts to have their own web root whilst the system one is global for all users. The location of system web document root is at
@@ -39,7 +42,7 @@ On the other hand, the user level web roots in the previous version of OSX (Lion
 <img class="center" src="{{ site.baseurl }}/assets/images/post/2012-08-07-pic03.png" />
 
 In terminal type:
-``` bash edit configuration
+``` bash
 cd /etc/apache2/users
 vi username.conf
 ```

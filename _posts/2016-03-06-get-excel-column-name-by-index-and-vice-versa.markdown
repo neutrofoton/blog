@@ -99,7 +99,11 @@ class Program
 I write the code in my blog just to remind me in the future in case I get the same need. And it would be great if it can help others who have the same need as me :)
 
 <h4>Reference<h4>
+
 <ol type="1">
-<li> http://stackoverflow.com/questions/181596/how-to-convert-a-column-number-eg-127-into-an-excel-column-eg-aa
-</li> <li>http://stackoverflow.com/questions/667802/what-is-the-algorithm-to-convert-an-excel-column-letter-into-its-number</li>
+    <li> http://stackoverflow.com/questions/181596/how-to-convert-a-column-number-eg-127-into-an-excel-column-eg-aa
+    </li> 
+
+    <li>http://stackoverflow.com/questions/667802/what-is-the-algorithm-to-convert-an-excel-column-letter-into-its-number
+    </li>
 </ol>

@@ -13,11 +13,14 @@ Googling for that problem finally got a trick how to resolve it.
 <li>Right-click on your project, select <code>Maven > Disable Maven Nature</code></li>
 <li>
 Open your terminal, go to your project folder and do
+<br/>
 
-``` bash 
-# clean eclipse cache
-mvn eclipse:clean
-```
+
+{% highlight bash %}
+
+   mvn eclipse:clean
+
+{% endhighlight %}
 
 </li>
 <li>
