@@ -4,6 +4,8 @@ title: "Math in Web"
 date: 2016-03-09 22:41:47 +0800
 comments: true
 categories: [mathematic, javascript]
+tags: [mathematic, javascript]
+excerpt_separator:  <!--more-->
 ---
 There are several frameworks that can be used to display math equation on web page. Usually math equestion written in <a href="https://en.wikipedia.org/wiki/LaTeX">LaTeX</a> format. <a href="https://en.wikipedia.org/wiki/LaTeX">LaTeX</a> is used for the communication and publication of scientific documents in many fields, including mathematics, physics, computer science, statistics etc.
 
@@ -12,7 +14,7 @@ There are several frameworks that can be used to display math equation on web pa
 The following are examples math LaTeX expression rendered with <a href="https://khan.github.io/KaTeX/">KaTeX</a>.
 To use <a href="https://khan.github.io/KaTeX/">KaTeX</a> we just need to include <code>katex.min.css</code> and <code>katex.min.js</code>
 
-``` html KaTeX
+``` html
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.js"></script>
 
@@ -27,7 +29,8 @@ To use <a href="https://khan.github.io/KaTeX/">KaTeX</a> we just need to include
 </div>
 
 ```
-``` javascript KaTeX sample
+``` javascript
+// KaTeX sample
 katex.render("c = \\pm\\sqrt{a^2 + b^2}", eq1);
 katex.render("f(a,b,c) = (a^2+b^2+c^2)^3", eq2);
 
