@@ -4,12 +4,14 @@ title: "Generic Singleton Pattern in C#"
 date: 2013-08-29 15:27:41 +0800
 comments: true
 categories: [csharp, pattern]
+tags: [csharp, pattern]
+excerpt_separator:  <!--more-->
 ---
 In software engineering, the singleton pattern is a design pattern that restricts the instantiation of a class to one object. This is useful when exactly one object is needed to coordinate actions across the system. The concept is sometimes generalized to systems that operate more efficiently when only one object exists, or that restrict the instantiation to a certain number of objects. The term comes from the mathematical concept of a singleton.<a href="http://en.wikipedia.org/wiki/Singleton_pattern">[1]</a>
 
 Honestly in my daily coding activity, sometimes I need to implement singleton pattern. Jon wrote a good singleton article in C# <a href="http://www.yoda.arachsys.com/csharp/singleton.html">here</a>. Another case I want to implement singleton pattern in generic way. I convert what has been wrotten by Jon into generic.
 
-``` c# generic singleton
+``` c#
 /// <summary>
     /// Generic class which makes non singleton class to be singleton.
     /// Calling singleton instance of class should be Singleton<T>.Instance, otherwise the returned class is not singleton one.    ///
@@ -56,7 +58,7 @@ Honestly in my daily coding activity, sometimes I need to implement singleton pa
 ```
 
 The following snipped code is a sample how to use the generic singleton class.
-``` c# sample
+``` c#
 public class Processor
 {
     public string Name

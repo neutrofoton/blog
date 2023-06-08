@@ -4,6 +4,8 @@ title: "From WordPress to Octopress"
 date: 2016-03-07 08:32:33 +0800
 comments: true
 categories: [octopress]
+tags: [octopress]
+excerpt_separator:  <!--more-->
 ---
 I have just migrated my blog engine from <a href="https://wordpress.com/">WordPress</a> to <a href="http://octopress.org/">Octopress</a>. After exploring (googling) for hours about it, how to install, customize, hosting etc, finally I got a decision :
 > Ok I will migrate my blog to <a href="http://octopress.org/">Octopress</a>.

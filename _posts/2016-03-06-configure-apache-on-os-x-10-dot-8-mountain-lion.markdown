@@ -4,6 +4,8 @@ title: "Configure Apache on OS X 10.8 Mountain Lion"
 date: 2012-08-08 10:47:05 +0800
 comments: true
 categories: [macos, apache]
+tags: [macos, apache]
+excerpt_separator:  <!--more-->
 ---
 After installing Mountain Lion on my Macbook, I decided to prepare and set up software development tools in it. One of it is activate web sharing feature which can be found at System Preferences > Sharing on previous version. I was very suprise that apple seems remove it from the list.
 
@@ -54,7 +56,7 @@ Allow from all
 ```
 
 Then create html page inside ~/Sites to test our user local website and save it as index.html
-``` html sample page
+``` html
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>

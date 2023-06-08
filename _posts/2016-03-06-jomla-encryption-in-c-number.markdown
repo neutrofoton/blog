@@ -3,7 +3,8 @@ layout: post
 title: "Jomla Encryption in C#"
 date: 2012-08-06 10:21:53 +0800
 comments: true
-categories: [csharp, php]
+tags: [csharp, php]
+excerpt_separator:  <!--more-->
 ---
 Couple days ago I got a task to migrate user from an existing website which build based on Jomla CMS to an ASP.NET website user. Both of them use different encryption technique. The plan was that the Jomla based website would be replaced with the .NET website. In sort the scenario was :
 
@@ -13,7 +14,7 @@ Couple days ago I got a task to migrate user from an existing website which buil
 
 The first thing that come to my mind is to check whether they use the different encryption algorithm or not. And yup…they use different algorithm :( . So I decide to extend the <code>MembershipProvider</code> used by the .NET. In my case, thankfully I just need to override one method on that is <code>ValidateUser</code>. I will not talk the the detail what inside the methods is. The main point is just to validate if user login using existing password created by jomla can be validated by the .NET. To do that I create a simple class called <code>JomlaEncryption</code> to validate if user enter valid Jomla password.
 
-``` c# encrypt with jomla algorithm
+``` c#
 public class JomlaEncryption
 {
     public static bool IsValidPassword(string password, string encryptedPassword)

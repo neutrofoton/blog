@@ -4,6 +4,8 @@ title: "Mono on OS X 10.8 Mountain Lion"
 date: 2012-09-19 13:54:14 +0800
 comments: true
 categories: [macos, csharp, mono]
+tags: [macos, csharp, mono]
+excerpt_separator:  <!--more-->
 ---
 In this post I will write about setup and configure mono on OS X. I need mono on my Mac since C# is one of my favorite programming language ;)
 
@@ -11,7 +13,8 @@ First of all let’s download <a href="http://www.go-mono.com/mono-downloads/dow
 
 When the installation finish, open terminal :
 
-``` bash mono version
+``` bash 
+# mono version
 mono -V
 ```
 
@@ -46,7 +49,8 @@ To run ASP.Net on Apache web server, we need <a href="http://www.mono-project.co
 
 <li>Install mod mono module. Open terminal
 
-``` bash mod mono installation
+``` bash 
+# mod mono installation
 mkdir ~/modmono
 cp ~/Downloads/mod_mono-2.10.tar.bz2 ~/modmono
 cd ~/modmono
@@ -60,7 +64,7 @@ sudo cp /etc/apache2/mod_mono.conf /etc/apache2/other
 </li>
 
 <li>Add <code>mod_mono.conf</code> reference in <code>httpd.conf</code>
-``` bash edit httpd.conf
+``` bash
 sudo vi /etc/apache2/httpd.conf
 ```
 Add the following code at the end of <code>httpd.conf</code>
@@ -72,16 +76,18 @@ Include /etc/apache2/mod_mono.conf
 <li>Create a web directory with the path<code> ~/Projects/Mono/TestMonoApache/TestMonoApache/ </code>
 
 In that directory create an <code>index.aspx</code> file
-``` aspx-cs index.aspx
+``` aspx-cs 
 <center>mod_mono is working:<%=System.DateTime.Now.ToString()%></center>
 ```
 </li>
 <li>Add an Apache configuration file for mono.
-``` bash edit mod_mono.conf
+
+``` bash
 sudo vi /etc/apache2/mod_mono.conf
 ```
 Add the following line at the end of <code>mod_mono.conf</code>
-``` xml mod_mono.conf
+
+``` xml
 Alias /testmono "/Users/username/Projects/Mono/TestMonoApache/TestMonoApache/"
 <Directory "/Users/username/Projects/Mono/TestMonoApache/TestMonoApache/">
     Options Indexes FollowSymLinks MultiViews
@@ -98,7 +104,8 @@ AddMonoApplications default "/testmonoapache:/Users/username/Projects/Mono/TestM
 </li>
 
 <li>Restart apache server with command :
-``` bash restart apache
+
+``` bash
 sudo /usr/sbin/apachectl restart
 ```
 </li>

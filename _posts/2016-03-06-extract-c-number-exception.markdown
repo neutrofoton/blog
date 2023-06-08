@@ -4,12 +4,14 @@ title: "Extract C# exception"
 date: 2014-09-08 16:49:39 +0800
 comments: true
 categories: [csharp]
+tags: [csharp]
+excerpt_separator:  <!--more-->
 ---
 Throwing or catching exception strategy on building an application is a very important to get detail exception message, inner exception and detail strack trace where or which part of line of code that fired the exception.
 
 The following snipped code shows how to extract detail exception message, innner excepion and its detail strack trace to be recorded / written on log.
 
-``` c# exception extractor
+``` c#
 /// <summary>
     /// Extracting <seealso cref="System.Exception"> class include its inner exception
     /// </seealso></summary>

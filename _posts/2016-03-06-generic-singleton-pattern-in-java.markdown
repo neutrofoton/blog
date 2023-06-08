@@ -4,12 +4,14 @@ title: "Generic Singleton Pattern in Java"
 date: 2013-08-29 15:38:32 +0800
 comments: true
 categories: [java, pattern]
+tags: [java, pattern]
+excerpt_separator:  <!--more-->
 ---
 In my previous post about singleton pattern in C#, it is very nice flexible singleton code which make us be able to create a singleton instance of a non singleton class. But we can still be able to create a non singleton instance of the target class.
 
 In this post I want to implement it in Java. As far as I know even though both C# and Java have generic feature, generic in C# quite different from the one in Java. While converting of what I did about generic singleton in C# to Java, I feel that the way I do in Java is not as elegant as in C#. The following code is the generic singleton code I write in Java.
 
-``` java generic singleton
+``` java
 import java.util.HashMap;
 import java.util.Map;
 
@@ -50,7 +52,7 @@ public class Singleton{
 
 The following code show how to use the generic singleton class. It’s quite similar to the C# version.
 
-``` java sample
+``` java
 public class Starter {
 
     /**

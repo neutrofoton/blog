@@ -4,6 +4,8 @@ title: "ASP.NET Session State in Database"
 date: 2013-07-22 15:12:34 +0800
 comments: true
 categories: [csharp, aspnet]
+tags: [csharp, aspnet]
+excerpt_separator:  <!--more-->
 ---
 At some point we need to store information when dealing with web application.
 Storing information in web application can be implemented in some ways such as session and cookies.
@@ -17,18 +19,19 @@ First of all open command prompt and navigate to .NET framework installation pat
 
 We will use a tool called <code>aspnet_regsql.exe</code> that shipped with .NET framework installation to generate database that will be used to store session state. To display detail argument needed by this tool we can use the following command:
 
-``` vctreestatus aspnet_regsql
+``` text
 C:\Windows\Microsoft.NET\Framework64\v4.0.30319>aspnet_regsql.exe /?
 ```
 
-``` vctreestatus generate session state database
+``` text
 C:\Windows\Microsoft.NET\Framework64\v4.0.30319>aspnet_regsql.exe -ssadd -d {databaseName} -S {server\instance} -sstype c -U {username} -P {password}
 ```
 
 The command will create database, tables and store procedures.
 In web.config, don’t forget to add session state configuration by pointing the generated database.
 
-``` xml session state configuration
+``` xml 
+<!--session state configuration-->
 <system.web>
     <sessionstate mode="SQLServer" allowcustomsqldatabase="true" sqlconnectionstring="Data Source={server\instance};Initial Catalog={databaseName}; user={username}; password={password}" cookieless="false" timeout="20">
 
@@ -37,7 +40,7 @@ In web.config, don’t forget to add session state configuration by pointing the
 ```
 To test our session storage, just create simple aspx page.
 
-``` aspx-cs sample.aspx
+``` aspx
 <asp:button id="btnAddSession" runat="server" text="Add Session" onclick="btnAddSession_Click"/>
 
 <asp:button id="btnRemoveSession" runat="server" text="Remove Session" onclick="btnRemoveSession_Click"/>
@@ -47,7 +50,7 @@ To test our session storage, just create simple aspx page.
 
 ```
 
-``` c# sample.aspx.cs
+``` c#
 protected void Page_Load(object sender, EventArgs e)
 {
     if (Session[Constant.SessionKey] != null)
