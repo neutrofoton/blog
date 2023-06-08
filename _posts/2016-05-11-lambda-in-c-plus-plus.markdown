@@ -4,14 +4,16 @@ title: "Lambda in C++"
 date: 2016-05-11 23:15:18 +0700
 comments: true
 categories: [cpp]
+tags: [cpp]
+excerpt_separator:  <!--more-->
 ---
 
-<img class="left" src="{{ site.baseurl }}/images/logo/lambda.png" />
+<img class="left" src="{{ site.baseurl }}/assets/images/logo/lambda.png" />
 
 C++11 adds a new feature called lambda expressions. This allows us to write anonymous functions inline, removing the need to write a separate function or to write a function object, and makes code easier to understand.
 For those who are familiar with C# lambda expression, C++ lambda expression is similar. But lambda in C++ has slightly different syntax.
 
-``` text C++11 Lambda Syntax
+``` text 
 [capture_block](parameters) mutable exception_specification -> return_type {body}
 ```
 <ol>
@@ -42,15 +44,15 @@ For those who are familiar with C# lambda expression, C++ lambda expression is s
 <h3>Lambda and Direct Invoke</h3>
 The following snipped code is an example of lambda expression.
 
-``` cpp example lambda and directly invoked
-
+``` cpp 
+//example lambda and directly invoked
 string result = [](const string& str) -> string {return "Hi " + str;}("neutro");
 cout << result << endl;
 
 ```
 The lambda expression above shows that it has a <code>const string&</code> parameter and return a <code>string</code> type. To execute the lambda is by placing round brackets <code>()</code> and put object that will be passed to inside it. The <code>"neutro"</code> literal string will substitute <code>str</code> parameter. The output of the above code is :
 
-``` text output
+``` text
 Hi neutro
 ```
 
@@ -60,7 +62,8 @@ Pointer to a lambda expression can be stored and executed through the function p
 
 To make it clear the following code contains couples of various lambda expressions and store them in variables of type <code>auto</code> or its equivalent in <code>std::function</code> STL template class.
 
-``` cpp lambda as variable
+``` cpp 
+    //lambda as variable
     auto lambda1 = [] { cout <<"Hello lambda without parameter 1" << endl; };
     lambda1();
 
@@ -83,7 +86,8 @@ The snipped code above shows how lambda expressions stored in variable of auto t
 <h3>Lambda Capture Block</h3>
 Lambda Capture Block basically describes how we want to capture variables from the enclosing scope. Capturing a variable means that the variable becomes available inside the body of the lambda. The detail variant of capture block has been described on previous section. The following code shows various scenario how to play with capture block.
 
-``` cpp lambda capture block
+``` cpp 
+//lambda capture block
 int variableA = 1;
 int variableB = 1;
 int variableC = 1;
@@ -198,7 +202,7 @@ cout << "After lamda5, variableC : " <<variableC <<endl;
 
 The output of the sample code is :
 
-``` text output
+``` text
 Init Values :
 variableA : 1
 variableB : 1

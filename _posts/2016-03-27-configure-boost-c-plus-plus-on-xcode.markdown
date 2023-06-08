@@ -4,10 +4,12 @@ title: "Configure Boost (C++ Libraries) on Xcode, Code::Blocks and Visual Studio
 date: 2016-03-27 21:38:49 +0800
 comments: true
 categories: [xcode, code block, visual studio, macos, linux, windows, cpp]
+tags: [xcode, code block, visual studio, macos, linux, windows, cpp]
+excerpt_separator:  <!--more-->
 ---
 
 
-<img class="left" src="{{ site.baseurl }}/images/post/2016-03-27-boost.png" />
+<img class="left" src="{{ site.baseurl }}/assets/images/post/2016-03-27-boost.png" />
 
 <a href="http://www.boost.org/">Boost</a> is a set of libraries for the C++ programming language that provide support for tasks and structures such as linear algebra, pseudorandom number generation, multithreading, image processing, regular expressions, and unit testing. It contains over eighty individual libraries.<a href="https://en.wikipedia.org/wiki/Boost_(C%2B%2B_libraries)">[2]</a>
 
@@ -73,9 +75,12 @@ As on OS X and Ubuntu, the last step quite take time.
 </li>
 </ol>
 
+<!--more-->
+
 <h2>Configure <a href="http://www.boost.org/">Boost</a> on IDE(s)</h2>
-Before create C++ projects on various IDE, let's create a simple C++ hello world code that use Boost libraries. To simplify the test, I grab sample code from <a href="http://stackoverflow.com/questions/999120/c-hello-world-boost-tee-example-program">here</a>   
-``` cpp Hello World
+Before create C++ projects on various IDE, let's create a simple C++ hello world code that use Boost libraries. To simplify the test, I grab sample code from <a href="http://stackoverflow.com/questions/999120/c-hello-world-boost-tee-example-program">here</a> 
+
+``` cpp
 #include <iostream>
 #include <fstream>
 using namespace std;
@@ -115,7 +120,7 @@ The snipped code above just print text and write it to a text file. We just want
     <li>Add <code>/usr/local/boost_1_60_0/lib/</code> to the Library Search Paths</li>
     </ol>
 
-    <img class="center" src="{{ site.baseurl }}/images/post/2016-03-27-xcode.png" />
+    <img class="center" src="{{ site.baseurl }}/assets/images/post/2016-03-27-xcode.png" />
 
   </li>
   <li>
@@ -126,12 +131,12 @@ The snipped code above just print text and write it to a text file. We just want
     <li>
     Select Compiler tab, add <code>/usr/local/boost_1_60_0/include/</code>
  
-    <img class="center" src="{{ site.baseurl }}/images/post/2016-03-27-codeblocks1.png" />
+    <img class="center" src="{{ site.baseurl }}/assets/images/post/2016-03-27-codeblocks1.png" />
     </li>
     <li>
     Select Linker tab, add <code>/usr/local/boost_1_60_0/lib/</code>
    
-    <img class="center" src="{{ site.baseurl }}/images/post/2016-03-27-codeblocks2.png" />
+    <img class="center" src="{{ site.baseurl }}/assets/images/post/2016-03-27-codeblocks2.png" />
 
     </li>
     </ol>
@@ -147,7 +152,7 @@ The snipped code above just print text and write it to a text file. We just want
     <li>Click OK to close the dialog</li>
     </ol>
   
-    <img class="center" src="{{ site.baseurl }}/images/post/2016-03-27-vs.png" />
+    <img class="center" src="{{ site.baseurl }}/assets/images/post/2016-03-27-vs.png" />
 
   </li>
 </ul>

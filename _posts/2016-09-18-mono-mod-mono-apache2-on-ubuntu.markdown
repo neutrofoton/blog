@@ -4,9 +4,11 @@ title: "Mono mod_mono Apache2 on Ubuntu"
 date: 2016-09-18 08:34:23 +0700
 comments: true
 categories: [linux,csharp,mono,apache]
+tags: [linux,csharp,mono,apache]
+excerpt_separator:  <!--more-->
 ---
 
-<img class="left" src="{{ site.baseurl }}/images/logo/mono.png" />
+<img class="left" src="{{ site.baseurl }}/assets/images/logo/mono.png" />
 
 I used to write a post about install and configure Mono on OS X Mountain Lion. On this post I want to summary what I did the similar things on Ubuntu.
 
@@ -26,15 +28,12 @@ $ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E03
 $ echo "deb http://download.mono-project.com/repo/debian wheezy main" | sudo tee /etc/apt/sources.list.d/mono-xamarin.list
 
 $ sudo apt-get update
-
 ```
 
 To enable mod_mono installation on Ubuntu 13.10 or later, and Debian 8.0 and later (and their derivatives), we need to add a second repository to our system, in addition to the generic Debian/Ubuntu repository above (if you don’t use sudo, be sure to switch to root):
 
 ``` bash
-
 $ echo "deb http://download.mono-project.com/repo/debian wheezy-apache24-compat main" | sudo tee -a /etc/apt/sources.list.d/mono-xamarin.list
-
 ```
 
 Then run package update to update and a package upgrade to upgrade existing packages to the latest available.
@@ -42,49 +41,50 @@ Then run package update to update and a package upgrade to upgrade existing pack
 ``` bash
 $ sudo apt-get update
 $ sudo apt-get upgrade
-
 ```
 
 To install mono, run the following command
 
-``` bash install mono
+``` bash
 $ sudo apt-get install mono-complete
 ```
 
 If we do not have Apache 2 on our system, we need to install it first. Or we can check the existing version <code>apache2 -v</code>
 
-``` bash install apache2
+``` bash
 $ sudo apt-get install apache2
 ```
+
 
 To be able to host ASP.NET application on apache, we need to install <code>mod_mono</code>. <code>mod_mono</code> is a module for the Apache HTTP Server that allows us to host ASP.NET pages and other assemblies on multiple platforms by using Mono.
 
 To install Mod Mono and its dependencies run the following command
 
-``` bash install mod_mono
+``` bash
 $ sudo apt-get update && sudo apt-get install libapache2-mod-mono
 $ apt-get install mono-apache-server4
 ```
+<!--more-->
 
 Before going through the next step, the things than we can verify are :
 
 1. Ensuring Apache 2 running well at least by checking its version or start stop its service.
 
-    ``` bash apache version
+    ``` bash 
+    # apache version
     $ apache2 -v
-    ```
-
-    ``` bash start apache
+   
+    # start apache
     $ service apache2 start
-    ```
-
-    ``` bash stop apache
+   
+    # stop apache
     $ service apache2 stop
     ```
 
 2. Checking mono version
 
-   ``` bash mono version
+   ``` bash 
+   # mono version
    $ mono --version
    ```
 3. Ensuring we have <code>/usr/bin/mod-mono-server4</code>
@@ -99,20 +99,20 @@ To configure virtual host application, the steps are
 
    We needed to grant permissions to the login user so that the user could copy or create files to the <code>hellodotnet</code> directory.  For our purposes we made the current user the owner of the directory
 
-    ``` bash application directory
+    ``` bash 
+    # application directory
     $ chown -R -v your_user_name /var/www/
     ```
 
 2. Lets create a simple <code>/var/www/hellodotnet/index.aspx</code> file.
 
-    ``` html index.aspx
+    ``` html 
     <center>mod_mono is working:<%=System.DateTime.Now.ToString()%></center>
-
     ```
 
 3. Create a site configuration <code>/etc/apache2/sites-available/hellodotnet.conf</code>
 
-    ``` xml site configuration
+    ``` xml
        <VirtualHost *:81>
           ServerName hellodotnet
           ServerAdmin hello@test-apache-config.com

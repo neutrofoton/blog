@@ -4,7 +4,10 @@ title: "Ubuntu Server Does Not Recognize VirtualBox Adapter"
 date: 2016-10-12 21:25:24 +0700
 comments: true
 categories: [linux,virtualbox]
+tags: [linux,virtualbox]
+excerpt_separator:  <!--more-->
 ---
+
 As we know, VirtualBox provides several adapters that we can add and be used by OS guest.
 At the time of writing this post, I have an OS X (host) and Ubuntu Server 16.04.1 LTS (guest). The needs are, I want to be able to remote my Ubuntu from OS X terminal. I also want my Ubuntu guest can connect to internet. I have configured two network adapters for the guest (NAT and host-only).
 
@@ -23,7 +26,7 @@ Now I got both adapters <code>enp0s3</code> (NAT) and <code>enp0s8</code> (host-
 
 In order to make it permanent, we need to edit <code>/etc/network/interfaces</code> with the following lines
 
-```
+``` bash
 # The second network interface
 auto enp0s8
 iface enp0s8 inet dhcp
