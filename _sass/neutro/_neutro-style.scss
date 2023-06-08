@@ -89,3 +89,8 @@ img.left {
 img.center {
   margin: 0 auto;
 }
+
+/*Page title of post*/
+.post-title, .post-title a {
+  color: $red !important
+}

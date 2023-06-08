@@ -4,15 +4,17 @@ title: "C++ Priority Queue with Comparator"
 date: 2016-12-29 14:52:23 +0700
 comments: true
 categories: [cpp]
+tags: [cpp]
+excerpt_separator:  <!--more-->
 ---
 
-<img class="left" src="{{ site.baseurl }}/images/logo/cpp.png" />
+<img class="left" src="{{ site.baseurl }}/assets/images/logo/cpp.png" />
 
 <code>priority_queue</code> is categorized as a STL container adaptor. It is like a queue that keeps its element in sorted order. Instead of a strict FIFO ordering, the element at the head of the queue at any given time is the one with the highest priority.
 
 The template class definition of <code>priority_queue</code> is as follow
 
-``` c++ template definition
+``` c++
 template <
    class Type,
    class Container=vector<Type>,
@@ -25,7 +27,7 @@ A user-provided compare can be supplied to change the ordering, e.g. using <code
 
 Many samples available on net about <code>priority_queue</code> with default compare parameter. In this article let's create samples by specifying the compare parameter template.
 
-``` c++ priority_queue with std::greater
+``` c++
 
 //helper function displays sorted data
 template<class T>
@@ -52,7 +54,7 @@ void SamplePriorityQueue()
 
 The code above uses <code>std::greater</code> as a compare parameter template.
 
-``` bash output
+``` bash
 0
 1
 2
@@ -67,7 +69,7 @@ The code above uses <code>std::greater</code> as a compare parameter template.
 
 Beside the <code>std::less</code> or <code>std::greater</code>, we can create our custom comparator with lamda or custom class or struct.
 
-``` c++ lamda as compare parameter
+``` c++
 
 void SamplePriorityQueueWithLamda()
 {
@@ -90,7 +92,7 @@ void SamplePriorityQueueWithLamda()
 
 To use the custom comparator, we just need to pass it as the third parameter of <code>priority_queue</code> template
 
-``` c++ custom comparator
+``` c++
 
 struct CustomCompare
 {
@@ -102,7 +104,7 @@ struct CustomCompare
 
 ```
 
-``` c++ sample with custom comparator
+``` c++
 void SamplePriorityQueueWithCustomComparator()
 {
     priority_queue<int,vector<int>, CustomCompare > pq;
@@ -121,8 +123,8 @@ The data stored in <code>priority_queue</code> is not limited to basic data type
 We can store object in it. Let's create a sample of it.
 Let's say we have a <code>Person</code> class.
 
-``` c++ Person.hpp
-
+``` c++ 
+//Person.hpp
 #ifndef Person_hpp
 #define Person_hpp
 
@@ -153,7 +155,8 @@ private:
 
 ```
 
-``` c++ Person.cpp
+``` c++ 
+//Person.cpp
 #include "Person.hpp"
 
 bool operator < (const Person& lhs, const Person& rhs)
@@ -191,7 +194,7 @@ int Person::getAge() const
 ```
 On the <code>Person</code> class, we have friend overloading methods, right angle bracket and left angle bracket. The methods act as comparation operator. The operator overloading is needed if we want to use <code>std::less</code> or <code>std::greater</code>.
 
-``` c++ sample priority_queue stores object
+``` c++
 
 void SamplePriorityQueueStoreObject()
 {

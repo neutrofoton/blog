@@ -4,34 +4,37 @@ title: "C++ Set with Custom Comparator"
 date: 2016-12-30 09:42:04 +0700
 comments: true
 categories: [cpp]
+tags: [cpp]
+excerpt_separator:  <!--more-->
 ---
 
-<img class="left" src="{{ site.baseurl }}/images/logo/cpp.png" />
+<img class="left" src="{{ site.baseurl }}/assets/images/logo/cpp.png" />
 
 <code>std::set</code> is a C++ STL container that store unique elements following a specific order. It is defined in the <code>set</code> header file.
 <br/>
 
 Benefits and Features of <code>std::set</code>[3]:
 <ol>
-<li>It’s doesn’t allow duplicate elements i.e. it only contains unique elements</li>
-<li>
-<code>std::set</code> can contain element of any specified type in template argument
-</li>
-<li>
-<code>std::set</code> internally store elements in balanced binary tree
-</li>
-<li>
- By default <code>std::set</code> uses the operator <code> < </code> for comparing two elements and but if user passes the external sorting criteria i.e. comparator then it uses it instead of default operator <code> < </code>.
-</li>
-<li>
-<code>std::set</code> will keep the inserted elements in sorted order based on the assigned sorting criteria i.e. either by default criteria operator <code> < </code> or by passed comparator (if passed).
-</li>
+    <li>It’s doesn’t allow duplicate elements i.e. it only contains unique elements</li>
+    <li>
+        <code>std::set</code> can contain element of any specified type in template argument
+    </li>
+    <li>
+        <code>std::set</code> internally store elements in balanced binary tree
+    </li>
+    <li>
+        By default <code>std::set</code> uses the operator <code> < </code> for comparing two elements and  but if user passes the external sorting criteria i.e. comparator then it uses it instead of default  operator <code> < </code>.
+    </li>
+    <li>
+        <code>std::set</code> will keep the inserted elements in sorted order based on the assigned sorting     criteria i.e. either by default criteria operator <code> < </code> or by passed comparator (if  passed).
+    </li>
+</ol>
 
 In this post the samples only limited to <code>std::set</code> that use custom comparator and store complex object instead of basic data type. The complex object that we will use is reusing class <code>Person</code> on previous post.
 
 Let's create custom class that handles comparation process
 
-``` c++ CustomCompare
+``` cpp
 
 #ifndef CustomCompare_h
 #define CustomCompare_h
@@ -56,7 +59,8 @@ struct CustomCompare
 ```
 
 The following code is an example how to use the comparator class in <code>std:set</code>
-``` c++ sample how to use
+
+``` cpp
 void SampleSetWithCustomCompare()
 {
     set<Person,CustomCompare> setOfPersons;

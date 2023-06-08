@@ -60,7 +60,7 @@
     margin-top: 0;
 
     + * {
-      border-top: 1px solid $border-color;
+      border-top: 1px dashed $border-color;
       margin-top: $section-spacing;
       padding-top: $section-spacing;
     }
