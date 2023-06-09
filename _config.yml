@@ -4,7 +4,7 @@ highlighter:      rouge
 
 # Setup
 title:            neutro
-tagline:          'Blog'
+tagline:          'Science | Technology'
 description:      'Science | Technology'
 url:              https://neutrofoton.github.io
 baseurl:          '/blog'
