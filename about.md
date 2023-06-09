@@ -5,9 +5,5 @@ sidebar_link: true
 ---
 
 <p class="message">
-  Hey there! This page is included as an example. Feel free to customize it
-  for your own use upon downloading. Carry on!
+  No many things to write about me here, except the one who enjoy feeding koi fish and has interest in computer technology. Especially programming, control engineering, artificial intelligent and math. Please feel free to update me if I miss something in blog post. You can reach me at <em>neutrofoton[at]gmail.com</em>
 </p>
-
-To make pages show up in the sidebar, add `sidebar_link: true` to the front
-matter.

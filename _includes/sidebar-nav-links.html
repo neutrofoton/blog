@@ -12,6 +12,13 @@
     The code below dynamically generates a sidebar nav of pages with
     `sidebar_link: true` in the front-matter. See readme for usage.
   {% endcomment %}
+   
+  <a id="tags-link"
+       class="page-link {% if page.url == '/tags.html' %} active{% endif %}"
+       title="Categories"
+       href="{{ site.baseurl }}/tags.html">
+      Categories
+  </a>
 
   {% include page-links.html %}
 
