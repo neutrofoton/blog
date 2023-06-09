@@ -4,7 +4,7 @@ highlighter:      rouge
 
 # Setup
 title:            neutro
-tagline:          'A Jekyll theme'
+tagline:          'Blog'
 description:      'Science | Technology'
 url:              https://neutrofoton.github.io
 baseurl:          '/blog'
