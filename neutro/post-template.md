@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Post Template"
-date: 2021-04-06 08:10:48 +0700
+date: 2021-04-06 00:00:09 +0700
 comments: true
 categories: [mathematic, machine learning]
 tags: [mathematic, machine learning]
