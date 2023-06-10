@@ -8,7 +8,7 @@ tags: [docker]
 excerpt_separator:  <!--more-->
 ---
 
-<img class="center" src="{{ site.baseurl }}/assets/images/post/docker/docker-logo.PNG" alt="drawing" width="25%"/>
+<img class="center" src="{{ site.baseurl }}/assets/images/post/docker/docker-logo.png" alt="drawing" width="25%"/>
 
 # About Docker
 ``` bash
@@ -245,13 +245,15 @@ docker container inspect node1
 <img src="{{ site.baseurl }}/assets/images/post/docker/ss_container_network_id.PNG" alt="drawing" width="75%"/>
 
 Querying the json element of ***docker container inspect*** can be done with the following command:
-``` bash
+{% highlight bash %}
+{% raw %}
 # inspect specific element in json container
 docker container inspect --format '{{ .NetworkSettings.IPAddress }}' CONTAINER_NAME_or_ID
 docker container inspect --format '{{ .NetworkSettings.IPAddress }}' mysql
 
 docker container inspect --format '{{.NetworkSettings.Networks.bridge.Gateway}}' mysql
-```
+{% endraw %}
+{% endhighlight %}
 
 ### Docker Container - Logs
 ```
