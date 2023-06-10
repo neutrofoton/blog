@@ -84,7 +84,7 @@ docker image build -t hello-docker .
 # hello-docker => image name
 # . => current dic of docker file.
 ```
-
+<!--more-->
 ``` bash
 # list image
 docker image ls
