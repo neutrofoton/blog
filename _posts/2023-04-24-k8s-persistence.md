@@ -238,7 +238,7 @@ kubectl apply -f storage.yaml
 kubectl get pv
 ```
 
-<img class="center" src="images/persistent-volume.png" alt=""/>
+<img class="center" src="{{ site.baseurl }}/assets/images/post/k8s/persistent-volume.png" alt=""/>
 
 ## References
 1. https://kubernetes.io/docs/concepts/storage/
