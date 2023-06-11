@@ -40,6 +40,7 @@ commit: ddac20b4b34a9c8c857fc602203b6ba2679794d3
 Starting the <code>minikube</code>
 ``` bash
 # starting minikube
+# minikube start --driver=virtualbox
 minikube start
 
 # starting minikube on windows with hyperv
