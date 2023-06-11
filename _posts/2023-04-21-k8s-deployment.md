@@ -76,7 +76,7 @@ The next steps are saving the above yaml as <code>deployment.yaml</code> and exe
 kubectl -f apply deployment.yaml
 ```
 
-<img src="{{ site.baseurl }}/assets/images/post/k8s/check-deployment.png" alt=""/>
+<img class="center" src="{{ site.baseurl }}/assets/images/post/k8s/check-deployment.png" alt=""/>
 
 If we notice, a <code>Deployment</code> will create a corresponding a <code>ReplicaSet</code>. Meanwhile, the <code>ReplicaSet</code> will create corresponding <code>Pods</code>. 
 
@@ -138,7 +138,7 @@ Now, lets check the updated app by opening in browser <code>http://192.168.59.10
 
 How the Deployment does the elegant way ilustrated in the following picture.
 
-<img src="{{ site.baseurl }}/assets/images/post/k8s/how-deployment-work.png" alt=""/>
+<img class="center" src="{{ site.baseurl }}/assets/images/post/k8s/how-deployment-work.png" alt=""/>
 
 ## Managing Rollout
 
@@ -161,7 +161,7 @@ To rollback deployment we can do with the following command
 kubectl rollout undo deploy webapp --to-revision=1
 ```
 
-<img src="{{ site.baseurl }}/assets/images/post/k8s/deployment-history-rollback.png" alt=""/>
+<img class="center" src="{{ site.baseurl }}/assets/images/post/k8s/deployment-history-rollback.png" alt=""/>
 
 
 When we open the browser, we will get previous version. The revision number will keep increment as history tracking of Kubernates.

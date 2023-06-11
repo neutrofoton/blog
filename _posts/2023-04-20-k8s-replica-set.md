@@ -11,7 +11,7 @@ excerpt_separator:  <!--more-->
 ## About ReplicaSet
 A ReplicaSet's purpose is to maintain number of Pod available at any given time. It is used to guarantee the availability of a specified number of identical Pods.
 
-<img src="{{ site.baseurl }}/assets/images/post/k8s/replica-set.png" alt="" width="25%"/>
+<img class="center" src="{{ site.baseurl }}/assets/images/post/k8s/replica-set.png" alt="" width="25%"/>
 
 From the above picture, if the Pod die for any reason, Kubernetes will spring up a new one Pod to ensure the Pod availability.
 
@@ -84,7 +84,7 @@ If the ReplicaSet creation as expected, then we can open the app through browser
 ## Simulating Pod Crash
 To simulate Pod crash, let's delete the pod. The Kubernetes should recreated the a new similar pod for us.
 
-<img src="{{ site.baseurl }}/assets/images/post/k8s/replicaset-pod-recreate.png" alt="" />
+<img class="center" src="{{ site.baseurl }}/assets/images/post/k8s/replicaset-pod-recreate.png" alt="" />
 
 On the detail checking of replica set shown that the pod recreated when it's deleted.
 ``` bash
