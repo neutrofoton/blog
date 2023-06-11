@@ -39,8 +39,8 @@ commit: ddac20b4b34a9c8c857fc602203b6ba2679794d3
 
 Starting the <code>minikube</code>
 ``` bash
-# starting minikube
-# minikube start --driver=virtualbox
+# starting minikube (can be with not default parameter)
+# minikube start --driver=virtualbox --container-runtime=cri-o
 minikube start
 
 # starting minikube on windows with hyperv
