@@ -68,13 +68,13 @@ Before demonstrating the persistence with MongoDB, we will update several images
 
 <sub>*List of updated pod image*</sub>
 
-| Pod    | Image |
-| -------- | ------- |
-| Queue (ActiveMQ)  | richardchesterwood/k8s-fleetman-queue:release2    |
-| Position Tracker     | richardchesterwood/k8s-fleetman-position-tracker:release3 |
-| Position Simulator     | richardchesterwood/k8s-fleetman-position-simulator:release2 |
-| API Gateway           | richardchesterwood/k8s-fleetman-api-gateway:release2 |
-| WebApp            | richardchesterwood/k8s-fleetman-webapp-angular:release2 |'
+| Pod    | Image 
+| -------- | ------- 
+| Queue (ActiveMQ)  | richardchesterwood/k8s-fleetman-queue:release2    
+| Position Tracker     | richardchesterwood/k8s-fleetman-position-tracker:release3 
+| Position Simulator     | richardchesterwood/k8s-fleetman-position-simulator:release2 
+| API Gateway           | richardchesterwood/k8s-fleetman-api-gateway:release2 
+| WebApp            | richardchesterwood/k8s-fleetman-webapp-angular:release2 
 
 ## Storing MongoDB Database Outside Container (Host)
 

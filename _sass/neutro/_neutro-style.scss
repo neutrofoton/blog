@@ -94,5 +94,11 @@ img.center {
 
 /*Page title of post*/
 .post-title, .post-title a {
-  color: $red !important
+  /*color: $red !important;*/
+  color: #cb7273 !important;
 }
+
+#sidebar .site-title a {
+  color: #c3b0a2 !important;
+}
+
