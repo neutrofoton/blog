@@ -247,12 +247,16 @@ An *Agregate* contains a set of operations which those domain objects can be ope
 
 <img class="center" src="{{ site.baseurl }}/assets/images/post/2021-03-20-fig04.png" width="70%" />
 
+An Aggregate Root is a single, specific Entity contained in the aggregate.
+
 ``` csharp
     public abstract class AggregateRoot : Entity
     {
         
     }
 ```
+
+
 
 ``` csharp
     public abstract class Repository<T> where T : AggregateRoot
