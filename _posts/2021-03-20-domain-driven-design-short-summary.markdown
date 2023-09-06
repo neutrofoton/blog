@@ -61,7 +61,7 @@ The notion that focuses on *Domain Model* which is the most important part of th
 <!--more-->
 
 # Onion Architecture
-The implementation of DDD in onion architecture[3][5][6] showed in the Figure 3.
+The implementation of DDD in onion architecture showed in the Figure 3.
 
 
 <img class="center" src="{{ site.baseurl }}/assets/images/post/2021-03-20-fig01.png" />
@@ -125,7 +125,7 @@ From the lifespan point of view, *Value Object* can not live by its own. It can 
 For example <code>Address</code> object can not stay by its own. It should be belonged to <code>Person</code> object. From persistance perspective, *Value Object* does not have its own table in database.
 
 # How to Recognize Entity or Value Object
-It is not always clear having specific characteristic if a term or notion in a business process is an *Entity* or *Value Object*. It depends on the business process itself. A good approach to identify whether a notion of object is an *Entity* or *Value Object* is by comparing to *integer*[3].
+It is not always clear having specific characteristic if a term or notion in a business process is an *Entity* or *Value Object*. It depends on the business process itself. A good approach to identify whether a notion of object is an *Entity* or *Value Object* is by comparing to *integer*.
 
 ```csharp
 //Integer
@@ -241,7 +241,7 @@ Ideally most business logic elements are identified as *Value Objects*. The *Ent
 ```
 
 # Agregate
-*Aggregate* is a pattern in DDD. It is a cluster of domain objects that can be treated as a single unit[7]. *Aggregate* is an encapsulation of *Entities* and/or *Value Objects* (domain objects). An *Entity* can belong to a single *Agregate* only. Meanwhile a *Value Object* can belong to multiple *Agregates*. 
+*Aggregate* is a pattern in DDD. It is a cluster of domain objects that can be treated as a single unit for data changes. It also frequently known as a business model. *Aggregate* encapsulates *Entities* and/or *Value Objects* (domain objects). An *Entity* can belong to a single *Agregate* only. Meanwhile a *Value Object* can belong to multiple *Agregates*. 
 
 An *Agregate* contains a set of operations which those domain objects can be operated on. An *Agregate* also act as a single operation unit. Application layer should reload it from database, then perform action and store it back as a single object. Hence, the *Agregate* should not be too large. Commonly it contains maximum 3 *Entities*. On the contrary to *Entity*, we can have as many *Value Objects* in an *Agregate* as we want.
 
