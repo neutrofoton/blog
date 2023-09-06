@@ -27,7 +27,7 @@ One of good resources about DDD is [DDD course by Vladimir Khorikov](https://www
 
 # Terms in DDD
 ## Ubiquitous Languange
-*Ubiquitous Languanges* brides the gab between developer and business expert/ domain expert/ subject matter expert (SME). The *Ubiquitous Languange* notion come up to avoid misunderstanding between them. For example, the developer has a class <code>Product</code> that represent business term *Product* (both product and package). On the other hand the business expert treat *Product* and *Package* as different things. By the condition, it is needed the same languange to avoid misunderstanding. 
+*Ubiquitous Languanges* bridges the gab between developer and business expert/ domain expert/ subject matter expert (SME). The *Ubiquitous Languange* notion come up to avoid misunderstanding between them. For example, the developer has a class <code>Product</code> that represent business term *Product* (both product and package). On the other hand the business expert treat *Product* and *Package* as different things. By the condition, it is needed the same languange to avoid misunderstanding. 
 
 ## Bounded Context
 Bounded Context is a central pattern in DDD. It is the focus of DDD's strategic design section which is all about dealing with large models and teams. DDD deals with large models by dividing them into different *Bounded Contexts* and being explicit about their interrelationships [[Martin Fowler - BoundedContext]](https://martinfowler.com/bliki/BoundedContext.html).
