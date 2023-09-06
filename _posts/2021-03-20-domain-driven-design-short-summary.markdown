@@ -245,7 +245,7 @@ Ideally most business logic elements are identified as *Value Objects*. The *Ent
 
 An *Agregate* contains a set of operations which those domain objects can be operated on. An *Agregate* also act as a single operation unit. Application layer should reload it from database, then perform action and store it back as a single object. Hence, the *Agregate* should not be too large. Commonly it contains maximum 3 *Entities*. On the contrary to *Entity*, we can have as many *Value Objects* in an *Agregate* as we want.
 
-<img class="center" src="{{ site.baseurl }}/assets/images/post/2021-03-20-fig04.png" width="50%" />
+<img class="center" src="{{ site.baseurl }}/assets/images/post/2021-03-20-fig04.png" width="70%" />
 
 ``` csharp
     public abstract class AggregateRoot : Entity
