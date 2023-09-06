@@ -10,14 +10,14 @@ excerpt_separator:  <!--more-->
 
 I believe there are tons of articles and books out there that discuss about Domain Driven Design (DDD for short). This post essentially is taken from my note archieved when I explored about DDD from several resources. I rewrite it in here as a refresh for myself mainly. 
 
-Domain Driven Design (DDD) is the concept that the structure and language of software code (class names, class methods, class variables) should match the business domain[1].  We don't need to kill a mosquito with a cannon. We need to choose the fittest method in solving a problem. As well as DDD, it is not always be a fit method in solving application design. A software application has several attributes. Some of them deal with[3]: 
+Domain Driven Design (DDD) is the concept that the structure and language of software code (class names, class methods, class variables) should match the [business domain [1]](https://en.wikipedia.org/wiki/Domain-driven_design).  We don't need to kill a mosquito with a cannon. We need to choose the fittest method in solving a problem. As well as DDD, it is not always be a fit method in solving application design. A software application has several attributes. Some of them deal with: 
 
 - Amount of Data
 - Performance
 - Business Logic complexity
 - Tehnical Complexity.
 
-From the fourth software attributes, DDD is the most suitable with an application that has a *complex business logic*. DDD is designed to tackle the complexity of business rules. The main goals of DDD are[1]:
+From the fourth software attributes, DDD is the most suitable with an application that has a *complex business logic*. DDD is designed to tackle the complexity of business rules. The main goals of DDD are[[1]](https://en.wikipedia.org/wiki/Domain-driven_design):
 
 - Placing the project's primary focus on the core domain and domain logic;
 - Basing complex designs on a model of the domain;
@@ -30,7 +30,7 @@ One of good resources about DDD is [DDD course by Vladimir Khorikov](https://www
 *Ubiquitous Languanges* brides the gab between developer and business expert/ domain expert/ subject matter expert (SME). The *Ubiquitous Languange* notion come up to avoid misunderstanding between them. For example, the developer has a class <code>Product</code> that represent business term *Product* (both product and package). On the other hand the business expert treat *Product* and *Package* as different things. By the condition, it is needed the same languange to avoid misunderstanding. 
 
 ## Bounded Context
-Bounded Context is a central pattern in DDD. It is the focus of DDD's strategic design section which is all about dealing with large models and teams. DDD deals with large models by dividing them into different *Bounded Contexts* and being explicit about their interrelationships [Martin Fowler][8].
+Bounded Context is a central pattern in DDD. It is the focus of DDD's strategic design section which is all about dealing with large models and teams. DDD deals with large models by dividing them into different *Bounded Contexts* and being explicit about their interrelationships [[Martin Fowler - BoundedContext]](https://martinfowler.com/bliki/BoundedContext.html).
 
 *Bounded Context* notion comes up to make clear boundries between different parts of the system. Let's say our system consist of *Sales* and *Support*, we can seperate Product into *Sales* and *Support* context to make clear boundries between the two.
 
@@ -284,11 +284,11 @@ The guidelines in implementing *Domain Event* are[3]:
 - We should not pass *Entity* to an *Event*. Since it will produce additonal point of coupling. We should use primitive data type instead.
 
 # References
-1. https://en.wikipedia.org/wiki/Domain-driven_design
+1. [wikipedia - Domain Driven Design](https://en.wikipedia.org/wiki/Domain-driven_design)
 2. [Domain Driven Design: Tackling Complexity in the Heart of Software](https://www.amazon.com/gp/product/0321125215)
-3. https://www.pluralsight.com/courses/domain-driven-design-in-practice
-4. https://www.baeldung.com/spring-data-ddd
-5. https://www.baeldung.com/spring-boot-clean-architecture
-6. https://jeffreypalermo.com/2008/07/the-onion-architecture-part-1/
-7. https://martinfowler.com/bliki/DDD_Aggregate.html
-8. https://martinfowler.com/bliki/BoundedContext.html
+3. [Domain Driven Design in Practice](https://www.pluralsight.com/courses/domain-driven-design-in-practice)
+4. [Spring Data DDD](https://www.baeldung.com/spring-data-ddd)
+5. [Spring Boot Clean Architecture](https://www.baeldung.com/spring-boot-clean-architecture)
+6. [Onion Architecture](https://jeffreypalermo.com/2008/07/the-onion-architecture-part-1/)
+7. [Martin Fowler - DDD Aggregate](https://martinfowler.com/bliki/DDD_Aggregate.html)
+8. [Martin Fowler - BoundedContext](https://martinfowler.com/bliki/BoundedContext.html)
