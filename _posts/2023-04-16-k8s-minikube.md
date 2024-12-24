@@ -96,3 +96,61 @@ If we want to access app deployed in the minikube cluster, we use the IP of mini
 minikube ip
 ```
 
+# Making Minikube connect to a local Docker image
+1. Start Minikube
+
+    ```bash
+    minikube start
+    ```
+2. Set the Docker Environment for Minikube<br/>
+  Minikube has its own Docker daemon, and you need to point your local shell to it. You can do this with the following command:
+  
+    ```bash
+    eval $(minikube docker-env)
+    ```
+
+3. Build Your Docker Image<br/>
+  Now, build your Docker image using the local Docker client (which is now connected to the Minikube Docker daemon). For example:
+
+    ```bash
+    docker build -t your-image-name .
+    ```
+
+4. Verify the Image in Minikube
+  To make sure your image is available in Minikube, you can list the images in Minikube's Docker daemon:
+
+    ```bash
+    docker images
+    ```
+
+5. Use the Image in Kubernetes
+  Now, you can use your image in Kubernetes deployments or pods as you normally would. Here's an example of a deployment YAML that uses the local image:
+
+    ```yaml
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: my-deployment
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          app: my-app
+      template:
+        metadata:
+          labels:
+            app: my-app
+        spec:
+          containers:
+          - name: my-container
+            image: your-image-name
+            ports:
+            - containerPort: 8080
+
+    ```
+
+6. To revert the Docker environment back to your local Docker daemon, you can run:
+
+  ```bash
+  eval $(minikube docker-env -u)
+  ```
